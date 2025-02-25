@@ -5,7 +5,12 @@ from report import print_table
 OUTPUT_TO_FILE = False
 
 def my_hash(key: str, number_of_buckets: int) -> int:
-    return 0   # TODO 2
+    # return 0   # TODO 2
+    # return len(key) % number_of_buckets
+    h = 0
+    for c in key:
+        h = h * 10 + (ord(c) - ord("a"))
+    return h % number_of_buckets
 
 def main():
     names: list[str]
@@ -23,6 +28,10 @@ def main():
 
         # hash names into buckets
         # TODO 1
+        # hash names into buckets
+        for name in names:
+            bucket: int = my_hash(name, number_of_buckets)
+            buckets[bucket].append(name)
 
         print_table(f"Buckets = {number_of_buckets}", list(map(len, buckets)))
 
