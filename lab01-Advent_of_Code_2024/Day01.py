@@ -8,7 +8,7 @@ fh = open('Data/day-01', 'r')
 
 # separate 2 lines for file
 for line in map(str.rstrip,fh):
-    left,right = line.split()
+    left, right = line.split()
     # convert to int
     leftLines.append(int(left))
     rightLines.append(int(right))
@@ -22,10 +22,10 @@ rightLines.sort()
 # print(leftLines)
 # print(rightLines)
 
-def totalGap(leftLines,rightLines):
+def totalGap(leftLines, rightLines):
     gap = 0
     for i in range(len(rightLines)):
         gap += rightLines[i] - leftLines[i]
     print(gap)
 
-totalGap(leftLines,rightLines)
+totalGap(leftLines, rightLines)
