@@ -1,14 +1,16 @@
-list = ["abc", "ca", "cab"]
-# { "ca": 2, "abc": 1, "ab": 1, "cab": 1, "a": 1, "c": 2 }
 
 def prefixes(list) -> dict:
+    """
+    list = ["abc", "ca", "cab"]
+    { "ca": 2, "abc": 1, "ab": 1, "cab": 1, "a": 1, "c": 2 }
+    :param list:
+    :return:
+    """
     prefix_dict = {}
-    prefix_set = set()
     for word in list:
         charactor = ""
         for i in range(len(word)):
             charactor += word[i]
-            prefix_set.add(charactor)
             if charactor in prefix_dict:
                 prefix_dict[charactor] += 1
             else:
@@ -16,7 +18,6 @@ def prefixes(list) -> dict:
     return prefix_dict
 
 def prefixes_set(list) ->set:
-    prefix_dict = {}
     prefix_set = set()
     for word in list:
         charactor = ""
