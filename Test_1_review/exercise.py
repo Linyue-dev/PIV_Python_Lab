@@ -10,8 +10,8 @@ def read_file_print (filename: str):
 
 # Test
 filename: str = "./../lab03-hashing/names.txt"
-print("-------------------Exercise 1-------------------")
 read_file_print(filename)
+print("-------------------Exercise 2-------------------")
 """  Lists and Tuples
 Exercise 2: Given a list of numbers, write a function that:
 Appends 100 to the list
@@ -25,9 +25,9 @@ def list_operation(numbers: list) -> int:
     return number
 # Test
 numbers = [3,23,5,6,2.3,7,5,10]
-print("-------------------Exercise 2-------------------")
 print(f"pop number is {list_operation(numbers)}")
 print(f"list {numbers}")
+print("-------------------Exercise 3-------------------")
 """
 Exercise 3: Implement binary search on a sorted list.
 """
@@ -49,10 +49,10 @@ nums = [1, 3, 5, 7, 9, 11]
 index1 = binary_search(nums, 3)
 index2 = binary_search(nums, 20)
 # ternary expression for python
-print("-------------------Exercise 3-------------------")
+
 print(f"Index: {index1}, Result: {'not found' if index1 == -1 else 'found'}")
 print(f"Index: {index2}, Result: {'not found' if index2 == -1 else 'found'}")
-
+print("-------------------Exercise 4-------------------")
 """
 Exercise 4: Demonstrate hashing in Python with a dictionary.
 """
@@ -60,15 +60,15 @@ Exercise 4: Demonstrate hashing in Python with a dictionary.
 data = {"Alice": 25, "Bob": 30, "Charlie": 35}
 
 # Hash values for each key
-# print(f"Hash of 'Alice': {hash('Alice')}")
-# print(f"Hash of 'Bob': {hash('Bob')}")
-# print(f"Hash of 'Charlie': {hash('Charlie')}")
-#
-# # Retrieving values using hashing (simulated)
-# key = "Alice"
-# computed_hash = hash(key)  # Simulating internal dictionary lookup
-# print(f"Retrieving {key} using its hash ({computed_hash}): {data[key]}")
-print("-------------------Exercise 4-------------------")
+print(f"Hash of 'Alice': {hash('Alice')}")
+print(f"Hash of 'Bob': {hash('Bob')}")
+print(f"Hash of 'Charlie': {hash('Charlie')}")
+
+# Retrieving values using hashing (simulated)
+key = "Alice"
+computed_hash = hash(key)  # Simulating internal dictionary lookup
+print(f"Retrieving {key} using its hash ({computed_hash}): {data[key]}")
+print("-------------------Exercise 5-------------------")
 """
 Exercise 5: Given a list of numbers, return a list with duplicates removed using a set.
 """
@@ -80,7 +80,7 @@ def removed_duplicate_list(lst: list) ->list:
     # return list(nums_set)
     return list(set(lst))
 # Test
-print("-------------------Exercise 5-------------------")
+print("-------------------Exercise 6-------------------")
 lst =[2,4,6,8,1,6,8,2,4,5,10]
 print(f"{removed_duplicate_list(lst)}")
 
@@ -92,21 +92,24 @@ def loop_set(elements: set):
         print(element)
 
 # Test
-print("-------------------Exercise 6-------------------")
+print("-------------------Exercise 7-------------------")
 elements = {2,5,8,11,12,15}
 loop_set(elements)
 """
 Exercise 7: Count occurrences of words in a list.
 """
 def count_words(words: list)-> dict[str : int]:
+    # dict_word = {}
+    # for word in words:
+    #     if word not in dict_word:
+    #         dict_word[word] = 1
+    #     else:
+    #         dict_word[word] += 1
+    # return dict_word
     dict_word = {}
     for word in words:
-        if word not in dict_word:
-            dict_word[word] = 1
-        else:
-            dict_word[word] += 1
+        dict_word[word] = words.count(word)
     return dict_word
-
 # Test
 words = ["apple", "banana", "apple", "orange", "banana", "apple"]
 print("-------------------Exercise 7-------------------")
@@ -153,10 +156,8 @@ class Stack:
         else:
             print("Stack is empty!")
             return None
-
     def size(self):
         return len(self.stack)
-
     # to string
     def __str__(self):
         return f"Stack: {self.stack}"
