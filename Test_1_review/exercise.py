@@ -174,3 +174,40 @@ print(s.stack)  # output: [10, 20]
 print(s)  # output: Stack: [10, 20]
 print(s.peek())  # Output: 20
 
+print("-------------------Exercise 10------------------")
+
+def prefixes(words: list) -> dict:
+    dict_char = {}
+    for word in words:
+        char = ""
+        for i in range(len(word)):
+            char += word[i]
+            if char in dict_char:
+                dict_char[char] +=  1
+            else:
+                dict_char[char] = 1
+
+    return dict_char
+words = [ "abc", "ca", "cab" ]
+print( prefixes(words))
+
+
+def all_elements(l1: list, l2: list) -> list:
+    all_list = l1 + l2
+    return list(set(all_list))
+
+x= all_elements([3,2,7,4], [1,2,3])
+print(x)
+
+def swap_name_species(inputs: dict):
+    outputs: dict = {}
+    for species, names in inputs.items():
+        for name in names:
+            outputs[name] = species
+    return outputs
+
+RAT = "RAT"
+GUINEA_PIG = "GUINEA_PIG"
+TARANTULA = "TARANTULA"
+species_name ={ RAT: ["Lydian", "Elvira"], GUINEA_PIG: ["Egon"], TARANTULA: ["Freddie", "Katrina"] }
+print(swap_name_species(species_name))

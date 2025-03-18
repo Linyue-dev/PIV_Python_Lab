@@ -4,8 +4,17 @@ reports = []
 # create function for count of safe in reports
 def count_safe_reports():
     count_safe = 0
+    # with open ('Data/day-02','r') as file:
+    #     for line in file:
+    #         # Convert the line into a list of integers
+    #         report = list(map(int, line.split()))
+    #         # report = list[line.split()]
+    #         reports.append(report)
+    #         if is_safe(report):
+    #             count_safe += 1
+    # return count_safe
     with open ('Data/day-02','r') as file:
-        for line in file:
+        for line in map(str.rstrip,file):
             # Convert the line into a list of integers
             report = list(map(int, line.split()))
             reports.append(report)
