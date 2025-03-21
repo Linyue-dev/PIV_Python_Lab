@@ -44,5 +44,7 @@ grid = Grid(3, 3)
 
 a = [1, 2, 3]
 type(a)
-x=iter(a)
+x = iter(a)
 type(a)
+
+
