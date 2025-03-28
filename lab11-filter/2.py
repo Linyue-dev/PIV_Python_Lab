@@ -37,7 +37,7 @@ def changeType(d:str) -> int:
 
 # # type is str change to int
 data = ["3", "5", "7"]
-filter_data = [3,5,7]  # Output: [3, 5, 7]
+filter_data = [3, 5, 7]  # Output: [3, 5, 7]
 print(filter_data)
 
 # ===============================================
@@ -45,7 +45,8 @@ print(filter_data)
 test_data = ["3\n", "5\n", "6\n", "abc\n", "16\n"]
 # Output ["3","5","6","abc","16"]
 # Output ["3","5","6","16"]
-# map_list(int, filter_list(str.isdigit, map_list(str.rstrip,fh)))
-# for n in map(int, map(str.rstrip, fh)): default read the file
+map_list(int, filter_list(str.isdigit, map_list(str.rstrip,test_data)))
+for n in map(int, map(str.rstrip, test_data)): #default read the file
+    print(n)
 # any(predicate, data)->data
 # all(is_even, range(1, 10))
