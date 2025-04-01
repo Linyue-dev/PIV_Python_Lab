@@ -1,0 +1,5 @@
+"""
+accumulate()
+chain()
+groupby()
+"""

@@ -1,5 +1,5 @@
 class Grid:
-    # way1
+    # ========================================way1========================================
     # def __init__(self, rows, cols):
     #     self.rows = rows
     #     self.cols = cols
@@ -30,13 +30,32 @@ class Grid:
     #     for row in self.grid:
     #         print(" ".join(map(str, row)))
 
-    # way2
+    # ========================================way2========================================
+    # def __init__(self):
+    #     self.cells = dict()
+    #
+    # def __iter__(self):
+    #     return iter(self.cells.items())
+
+    # ========================================way3========================================
     def __init__(self):
-        self.cells = dict()
+        self.coords = list()
 
     def __iter__(self):
-        return iter(self.cells.items())
+        return iter(self.coords)
 
+    def __getitem__(self, n):
+        return self.coords[n]
+    def __setItem__(self, n, value):
+        self.coords[n] = value
+
+g = Grid()
+g.coords.append((1, 2))
+g.coords.append((3, 4))
+
+print(g[0])  # (1, 2)
+g[1] = (5, 6)
+print(g[1])  # (5, 6)
 
 
 grid = Grid(3, 3)
@@ -46,5 +65,3 @@ a = [1, 2, 3]
 type(a)
 x = iter(a)
 type(a)
-
-

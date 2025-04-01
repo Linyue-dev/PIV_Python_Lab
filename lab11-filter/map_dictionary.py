@@ -45,3 +45,7 @@ def dict_from_list_with(f: Callable, kvs: list) ->dict:
 l= [("a", 2), ("b", 1), ("c", 5), ("z", 34), ("a", 5), ("z", 4)]
 ll = [()]
 dict_from_list_with(lambda x, y: x+y, l)
+
+# x = map(f: Callable[[A],B], l: Iterable[A]) -> Iterable[B]
+# x = list(map())
+# Iterable --- important
