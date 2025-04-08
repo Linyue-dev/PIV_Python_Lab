@@ -1,0 +1,145 @@
+Absolutely! Let’s dig into **higher-order functions** in Python — what they are, why they’re useful, and how to get hands-on with them.
+
+---
+
+## 🧠 What is a Higher-Order Function?
+
+A **higher-order function** is a function that either:
+
+1. **Takes another function as an argument**, or
+2. **Returns a function** as a result.
+
+They let you write flexible, reusable, and abstract code.
+
+---
+
+### 🧩 Built-in Examples
+
+- **`map(func, iterable)`** — applies `func` to each element
+- **`filter(func, iterable)`** — keeps items where `func(item)` is `True`
+- **`sorted(..., key=func)`** — uses `func` to determine sort order
+- **`functools.reduce(func, iterable)`** — applies `func` cumulatively
+
+---
+
+## 🔧 Creating Higher-Order Functions
+
+### ✅ Example 1: Takes a function as argument
+
+```python
+def apply_twice(func, x):
+    return func(func(x))
+```
+
+Usage:
+```python
+def square(n):
+    return n * n
+
+print(apply_twice(square, 2))  # → 16
+```
+
+---
+
+### ✅ Example 2: Returns a function
+
+```python
+def make_adder(n):
+    def adder(x):
+        return x + n
+    return adder
+```
+
+Usage:
+```python
+add5 = make_adder(5)
+print(add5(10))  # → 15
+```
+
+---
+
+## 💪 Practice Exercises
+
+### 🧪 1. Write your own `map_list(func, lst)`
+Create a higher-order function that mimics `map()`.
+
+```python
+def map_list(func, lst):
+    return [func(x) for x in lst]
+```
+
+Try it:
+```python
+print(map_list(lambda x: x.upper(), ['a', 'b', 'c']))
+```
+
+---
+
+### 🧪 2. Write `filter_list(func, lst)`
+Make your own version of `filter()`.
+
+```python
+def filter_list(func, lst):
+    return [x for x in lst if func(x)]
+```
+
+Try it:
+```python
+print(filter_list(lambda x: x % 2 == 0, [1, 2, 3, 4]))
+```
+
+---
+
+### 🧪 3. Write `apply_func_list(funcs, value)`
+Given a list of functions and one input value, apply them all to that value.
+
+```python
+def apply_func_list(funcs, value):
+    return [f(value) for f in funcs]
+```
+
+Try it:
+```python
+funcs = [lambda x: x + 1, lambda x: x ** 2, lambda x: -x]
+print(apply_func_list(funcs, 3))  # [4, 9, -3]
+```
+
+---
+
+### 🧪 4. Write `compose(f, g)`
+Return a new function that composes two functions: `f(g(x))`.
+
+```python
+def compose(f, g):
+    return lambda x: f(g(x))
+```
+
+Try it:
+```python
+double = lambda x: x * 2
+increment = lambda x: x + 1
+
+new_func = compose(double, increment)  # double(increment(x))
+print(new_func(3))  # → 8
+```
+
+---
+
+### 🧪 5. Make a function that returns different behavior
+Write a function `make_compare(val)` that returns a function checking if something is greater than `val`.
+
+```python
+def make_compare(val):
+    return lambda x: x > val
+```
+
+Try it:
+```python
+gt_10 = make_compare(10)
+print(gt_10(12))  # True
+print(gt_10(5))   # False
+```
+
+---
+
+Want a few challenge problems that combine higher-order functions + iterators next?

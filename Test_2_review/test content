@@ -1,0 +1,154 @@
+## 🔁 Iterables & Iterators Practice
+
+### **1. Custom Iterator: CountUpTo**
+Write a class `CountUpTo` that counts from 1 up to a max number.
+
+```python
+class CountUpTo:
+    def __init__(self, max):
+        self.max = max
+        self.current = 1
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.current > self.max:
+            raise StopIteration
+        val = self.current
+        self.current += 1
+        return val
+```
+
+✅ **Practice**: Try `for num in CountUpTo(5): print(num)`
+
+---
+
+### **2. Custom Iterator that wraps another iterable**
+Make a class `UppercaseIterator` that takes an iterable of strings and returns each string uppercased.
+
+```python
+class UppercaseIterator:
+    def __init__(self, iterable):
+        self.iterator = iter(iterable)
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        return next(self.iterator).upper()
+```
+
+✅ **Try it**:
+```python
+for word in UppercaseIterator(["hello", "world"]):
+    print(word)
+```
+
+---
+
+### **3. Implement custom Zip**
+Make a class `MyZip` that mimics `zip()` using iterators.
+
+```python
+class MyZip:
+    def __init__(self, iter1, iter2):
+        self.it1 = iter(iter1)
+        self.it2 = iter(iter2)
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        return (next(self.it1), next(self.it2))
+```
+
+✅ **Try it**:
+```python
+for x, y in MyZip([1, 2, 3], ['a', 'b', 'c']):
+    print(x, y)
+```
+
+---
+
+## 🔁 Higher-Order Functions Practice
+
+### **4. Reimplement `map()`**
+Write a function `map_list(func, lst)` that applies `func` to each element in `lst`.
+
+```python
+def map_list(func, lst):
+    return [func(x) for x in lst]
+```
+
+✅ **Try it**:
+```python
+print(map_list(lambda x: x * 2, [1, 2, 3]))  # [2, 4, 6]
+```
+
+---
+
+### **5. Reimplement `filter()`**
+Write a function `filter_list(func, lst)` that keeps elements where `func(x)` is `True`.
+
+```python
+def filter_list(func, lst):
+    return [x for x in lst if func(x)]
+```
+
+✅ **Try it**:
+```python
+print(filter_list(lambda x: x % 2 == 0, [1, 2, 3, 4]))  # [2, 4]
+```
+
+---
+
+### **6. Higher-order function generator**
+Write a function `make_multiplier(n)` that returns a function which multiplies by `n`.
+
+```python
+def make_multiplier(n):
+    def multiplier(x):
+        return x * n
+    return multiplier
+```
+
+✅ **Try it**:
+```python
+times3 = make_multiplier(3)
+print(times3(5))  # 15
+```
+
+---
+
+## 🧪 Combo Challenge
+
+### **7. Combining Iterators and Higher-Order Functions**
+Make a custom iterator `EvenSquares` that takes an iterable of numbers and yields only the square of the even ones. Use your own `filter_list` and `map_list`.
+
+```python
+class EvenSquares:
+    def __init__(self, iterable):
+        self.values = map_list(lambda x: x ** 2, filter_list(lambda x: x % 2 == 0, iterable))
+        self.index = 0
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.index >= len(self.values):
+            raise StopIteration
+        val = self.values[self.index]
+        self.index += 1
+        return val
+```
+
+✅ **Try it**:
+```python
+for sq in EvenSquares([1, 2, 3, 4, 5]):
+    print(sq)  # Should print 4, 16
+```
+
+---
+
+Would you like a mini-quiz based on this too? Or maybe code challenges where you fix broken code?

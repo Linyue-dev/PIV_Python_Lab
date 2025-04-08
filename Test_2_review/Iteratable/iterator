@@ -1,0 +1,63 @@
+Great question! Let's break it down simply:
+
+---
+
+### 🔁 When to define `__next__` and `__iter__`
+
+#### 1. **Use `__iter__` only**:
+You only need to define `__iter__()` if your object is **already an iterator** or you want to make it **return an iterator** — usually something like a generator or another iterator object.
+
+✅ Example: A class that returns a new iterator each time.
+
+```python
+class MyList:
+    def __init__(self, data):
+        self.data = data
+
+    def __iter__(self):
+        return iter(self.data)  # built-in list iterator
+```
+
+No need for `__next__`, because the `iter(self.data)` already knows how to handle it.
+
+---
+
+#### 2. **Define both `__iter__` and `__next__`**:
+You do this when you're making your **own custom iterator** — meaning *you* manage the internal state and define what "next" means.
+
+✅ Example:
+
+```python
+class CountUpTo:
+    def __init__(self, max):
+        self.max = max
+        self.current = 1
+
+    def __iter__(self):
+        return self  # returns itself as the iterator
+
+    def __next__(self):
+        if self.current > self.max:
+            raise StopIteration
+        val = self.current
+        self.current += 1
+        return val
+```
+
+Why both?
+- `__iter__()` returns `self`, because this object is the iterator.
+- `__next__()` tells how to move to the next item.
+
+---
+
+### 🔁 Summary Table
+
+| Scenario                             | `__iter__()` | `__next__()` | Example                        |
+|--------------------------------------|--------------|---------------|--------------------------------|
+| Wrap an iterable (like a list)       | ✅           | ❌            | Custom container class         |
+| Create a generator (with `yield`)    | ✅ (auto)    | ❌ (auto)     | `def __iter__(self): yield`    |
+| Custom iterator (manual control)     | ✅           | ✅            | `CountUpTo`, `RangeLike`       |
+
+---
+
+If you want, I can quiz you or give you examples to rewrite in both styles!
