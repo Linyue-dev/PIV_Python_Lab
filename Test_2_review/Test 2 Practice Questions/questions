@@ -1,0 +1,124 @@
+# Stacks and queues
+
+```python
+class Queue:
+    def put(self, v): ...
+    def front(self): ...
+    def get(self): ...
+
+class Stack:
+    def push(self, v): ...
+    def top(self): ...
+    def pop(self): ...
+```
+
+## Reverse
+
+Code a function that reverses the contents of a queue.
+
+**Requirement**: use a stack and no lists. The input queue should contain
+ the reversed elements at the end of the function.
+
+``` python
+def reverse(queue: Queue):
+```
+
+# Iterators and Higher-order functions
+
+## `Take`
+Code the iterator `Take` that will produce the first `n` elements in a list.
+If `n` is larger than the list, then the entire list is produced.
+
+## `TakeWhile`
+Code the iterator `TakeWhile` that will produce the elements while a given
+predicate is true.
+
+For example:
+
+``` python
+for x in TakeWhile(is_even, [2, 4, 6, 8, 9, 5, 2, 3]):
+    print(x)
+```
+
+will print:
+
+    2
+    4
+    6
+    8
+
+## `find_with`
+
+Code a higher-order function `find_with` that returns one element in the list for which the predicate is true, or `None` if not found.
+
+For example,
+
+``` python
+my_games = [
+    (27, "Great game 1"),
+    (20, "Average game 1"),
+    (10, "Bad game 1"),
+    (12, "Bad game 2"),
+    (7,  "Terrible game"),
+    (25, "Average game 2"),
+    (49, "Best game ever")
+]
+
+def good_game(g):
+    return g[0] >= 25
+
+print(find_with(good_game, my_games))
+```
+
+would print:
+
+    (25, "Average game 2")
+
+or
+
+    (49, "Best game ever")
+
+
+# Increasing
+
+You have a sequence of numbers stored in a queue. Code a function that
+replaces the queue with only the values that *increase*. For example, if
+the queue has `~FRONT -> 3, 2, 5, 4, 3, 6, 5, 7 <- BACK` then the
+increasing values would be `3, 5, 6, 7`. Requirement: use stacks and no
+lists.
+
+## APIs
+
+`class Stack(Generic[T])`:
+
+``` python
+def push(self, element: T):
+def pop(self) -> T:
+def top(self) -> T:
+def is_empty(self) -> bool:
+```
+
+`class Queue(Generic[T])`:
+
+``` python
+def put(self, element: T):
+def get(self) -> T:
+def front(self) -> T:
+def is_empty(self) -> bool:
+```
+
+# Code an iterator `Tails` that produces one by one consecutively smaller lists:
+first the entire list, then the list without the first element, then the list
+without the second element, until the empty list (included in tails). The original
+list should not be modified.
+
+
+# Code an iterator `Nub` that takes an list and produces only unique values, i.e.: no duplicates.
+
+    ["aaa", "bbb", "aaa", "zzz", "bbb", "zzz"]
+
+would produce: "aaa", "bbb", "zzz"
+
+# Code a higher-order function `drop_while` that will return a list without the beginning elements for which the predicate function (`pred`) returns `True`.
+
+# Code a higher-order function `partition` that returns a tuple of lists, the first are the elements that the predicate function (`pred`) return True, the second are the ones returning False.

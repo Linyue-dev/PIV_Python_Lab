@@ -15,4 +15,4 @@ b = map_list(int, a)
 # ===============================2========================
 def sqyare(a:str) ->int:
     return int(a) ** 2
-b = map_list(sqyare, a)
+c = map_list(sqyare, a)
