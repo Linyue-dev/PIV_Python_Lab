@@ -38,7 +38,6 @@ def dict_from_list_with(f: Callable, kvs: list) ->dict:
             results[k] = new_v
         else:
             results[k] = v
-
     return results
 
 

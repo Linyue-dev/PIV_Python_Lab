@@ -1,0 +1,26 @@
+class Queue:
+    def put(self, v): ...
+    def front(self): ...
+    def get(self): ...
+
+    def is_empty(self) -> bool: ...
+
+
+class Stack:
+    def push(self, v): ...
+    def top(self): ...
+    def pop(self): ...
+    def is_empty(self) -> bool: ...
+def reverse(queue: Queue):
+    stack = Stack()
+    while True:
+        front = queue.front()
+        if queue.is_empty():
+            break
+        stack.push(front)
+    while True:
+        item = stack.top()
+        if stack.is_empty():
+            break
+        queue.put(item)
+    return queue

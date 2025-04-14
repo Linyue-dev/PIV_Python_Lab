@@ -146,7 +146,6 @@ def increasing(queue: Queue) -> Queue:
 
     while not stack2.is_empty():
         queue.put(stack2.pop())
-
     return queue
 
 # test：
