@@ -37,33 +37,31 @@ class UppercaseIterator:
 
     def __next__(self):
         self.count += 1
-        next_val = self.data[self.count].upper()
-        self.count += 1
-        return next_val
-
-class UppercaseIterator:
-    def __init__(self, iterable):
-        if isinstance(iterable, str):
-            self.iterator = iter(iterable.split())  # or just iter(iterable) for letters
-        else:
-            self.iterator = iter(iterable)
-
-    def __iter__(self):
-        return self
-
-    def __next__(self):
-        return next(self.iterator).upper()
-
+        return self.data[self.count].upper()
 
 # class UppercaseIterator:
-#     def __init__(self, data):
-#         self.data = iter(data)
+#     def __init__(self, iterable):
+#         if isinstance(iterable, str):
+#             self.iterator = iter(iterable.split())  # or just iter(iterable) for letters
+#         else:
+#             self.iterator = iter(iterable)
 #
 #     def __iter__(self):
 #         return self
 #
 #     def __next__(self):
-#         return next(self.data).upper()
+#         return next(self.iterator).upper()
+
+
+# class UppercaseIterator:
+#     def __init__(self, iterable):
+#         self.iterator = iter(iterable)
+#
+#     def __iter__(self):
+#         return self
+#
+#     def __next__(self):
+#         return next(self.iterator).upper()
 
 
 words = ["hello", "world", "python"]

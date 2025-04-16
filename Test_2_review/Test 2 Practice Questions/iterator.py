@@ -146,6 +146,7 @@ def increasing(queue: Queue) -> Queue:
 
     while not stack2.is_empty():
         queue.put(stack2.pop())
+
     return queue
 
 # test：
@@ -244,7 +245,6 @@ print("\n=======================================================================
 # Code a higher-order function `partition` that returns a tuple of lists, the 
 first are the elements that the predicate function (`pred`) return True, the 
 second are the ones returning False.
-
 """
 
 def partition(pred, lst: list) ->tuple:
@@ -256,5 +256,4 @@ def partition(pred, lst: list) ->tuple:
         else:
             list2.append(item)
     return list1, list2
-
 print(partition(pred,a))

@@ -11,12 +11,8 @@ def map_list(key:Callable[[A],B],data:list[A])->list[B]:
 
 a = ["1", "2", "3"]
 b = map_list(int, a)
-print(b)
 
 # ===============================2========================
 def sqyare(a:str) ->int:
-    # if isinstance(a):
     return int(a) ** 2
 c = map_list(sqyare, a)
-
-print(c)
