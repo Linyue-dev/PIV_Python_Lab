@@ -13,7 +13,6 @@ class Node:
     right: Optional["Node"] = None
 
     def __len__(self):
-
         if self is None:
             return 0
         # ===========way1================

@@ -11,6 +11,9 @@ class TreeNode:
         for child in self.children:
             child.display(level + 1)
 
+
+
+
 # Create the tree
 root = TreeNode("Root")
 
