@@ -28,34 +28,35 @@ while new is not None:
 #         print(current.element)
 #         current = current.next
 
-# ============================== make a linked list =================================
+# region  ====================make a linked list ===============================
 def make_chain(n):
     """make a linked list
        with elements o -> n-1
     """
-    head = Link(0)
-    current = head
-    for i in range(1, n):
-        current.next = Link(i)
-        current = current.next
-    return head
+    # head = Link(0)
+    # current = head
+    # for i in range(1, n):
+    #     current.next = Link(i)
+    #     current = current.next
+    # return head
 
-print("Link list ->")
-chain = make_chain(5)
+    head = Link(0)
+    # current = head
+    for i in range(1, n):
+        head.next = Link(i)
+        head = head.next
+    return head
+# endRegion
 
 # Traverse and print
-current = chain
-while current is not None:
-    print(current.element)
-    current = current.next
-def build(n):
-    head = Link(0)
-    current = head
-    for i in range(1, n):
-        current.next = Link(i)
-        current = current.next
-        print(current)
-    return head
+print("Link1 list ->")
+chain = make_chain(5)
+while chain is not None:
+    print(chain.element)
+    chain = chain.next
+
+
+
 
 
 
